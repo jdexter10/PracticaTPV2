@@ -6,6 +6,7 @@ import static tp1.p2.view.Messages.error;
 import java.util.Scanner;
 
 import tp1.p2.logic.Game;
+import tp1.p2.logic.GameStatus;
 import tp1.p2.view.GamePrinter;
 import tp1.p2.view.Messages;
 
@@ -19,11 +20,13 @@ public class Controller {
 	private Scanner scanner;
 
 	private GamePrinter gamePrinter;
+	
+	private GameStatus gameStatus;
 
 	public Controller(Game game, Scanner scanner) {
 		this.game = game;
 		this.scanner = scanner;
-		this.gamePrinter = new GamePrinter(game);
+		this.gamePrinter = new GamePrinter(gameStatus);
 	}
 
 	/**
