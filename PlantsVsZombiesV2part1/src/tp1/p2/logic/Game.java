@@ -1,5 +1,7 @@
 package tp1.p2.logic;
 
+import java.util.Random;
+
 import tp1.p2.control.Command;
 import tp1.p2.control.Level;
 
@@ -26,7 +28,7 @@ public class Game {
 	private boolean playerDied;
 	
 	
-	public Game()
+	public Game(long seed, Level level)
 	{
 		
 	}

@@ -16,6 +16,8 @@ public interface GameStatus {
 	
 	boolean allZombiesDied();
 
+	public String positionToString(int col, int row);
+
 	// TODO add your code here
 
 }

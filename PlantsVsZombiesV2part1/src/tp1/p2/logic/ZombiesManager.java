@@ -49,7 +49,7 @@ public class ZombiesManager {
 	}
 
 	private int randomZombieType() {
-		return rand.nextInt(ZombieFactory.getAvailableZombies().size());
+		return rand.nextInt(((Object) ZombieFactory.getAvailableZombies()).size());
 	}
 
 	public void update() {
@@ -69,6 +69,16 @@ public class ZombiesManager {
 			// TODO add your code here
 		}
 		return canAdd;
+	}
+
+	private int getRemainingZombies() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	private boolean isPositionEmpty(int numCols, int row) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	// TODO add your code here
