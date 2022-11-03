@@ -35,5 +35,6 @@ public class PlantFactory {
 	 * Avoid creating instances of this class
 	 */
 	private PlantFactory() {
+		
 	}
 }
