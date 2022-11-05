@@ -1,13 +1,14 @@
 package tp1.p2.logic.gameobjects;
 
-public class Plant {
+public abstract class Plant {
 	
-	
-	
-	public Plant()
+	protected Plant()
 	{
 		
 	}
 	
 	
+	abstract public void getCost();
+	
+	abstract public void copy();
 }
