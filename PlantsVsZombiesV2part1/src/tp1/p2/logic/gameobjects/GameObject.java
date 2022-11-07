@@ -20,6 +20,7 @@ public abstract class GameObject implements GameItem {
 
 
 	GameObject() {
+		
 	}
 
 	GameObject(GameWorld game, int col, int row) {
