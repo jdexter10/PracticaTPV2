@@ -1,11 +1,16 @@
 package tp1.p2.logic;
 
+import static tp1.p1.view.Messages.error;
+
 import java.util.Random;
 
+import tp1.p2.logic.gameobjects.Sunflower;
+import tp1.p2.view.Messages;
 import tp1.p2.control.Command;
 import tp1.p2.control.Level;
+import tp1.p2.logic.gameobjects.GameObject;
 
-public class Game {
+public abstract class Game implements GameWorld, GameItem, GameStatus{
 	
 	private static final int INITIAL_SUNCOINS = 50;
 	
@@ -15,11 +20,11 @@ public class Game {
 	
 	private Level level;
 	
-	private int cycle;
+	private int cycle = 0;
 	
 	private Random rand; // ver que haCER
 	
-	private int suncoins;
+	private int suncoins = 50;
 	
 	private ZombiesManager zombiesManager;
 	
@@ -33,24 +38,106 @@ public class Game {
 		
 	}
 
-
+	public void reset()
+	{
+		suncoins = 50;
+		cycle = 0;
+		playerQuits = false;
+		playerDied = false;
+	}
+	
 	public boolean isFinished() {
-		// TODO Auto-generated method stub
 		return false;
 	}
-
-
+	
+	public boolean isPlayerDied()
+	{
+		return playerDied;
+	}
+	
+	public void PlayerQuits() //setter de que el jugador cierra
+	{
+		playerQuits = true;
+	}
+	
+	
 	public boolean isPlayerQuits() {
-		// TODO Auto-generated method stub
-		return false;
+		return playerQuits;
 	}
-
+	
+	public boolean isPositionEmpty(int col, int row) {
+		// true si esa posicion est� libre en todas las listas
+		boolean ok = false;
+		if(container.isPositionEmpty(col, row)) //ver si hay zombies
+		{
+			ok= true;
+		}
+		return ok;
+	}
+	
+	private static boolean isPositionInLimits(int col, int row) {
+		if(col < 0 || col > 8 || row < 0 || row > 4) {
+			return false;
+		}else {
+			return true;
+		}
+	}
 
 	public boolean execute(Command command) { // revisar esta funcion
 		// TODO Auto-generated method stub
 		return false;
 	}
 	
-	//Seguir
+	public boolean addGameObject(GameObject gameObject)
+	{
+		boolean ok = false;
+		int col = gameObject.getCol();
+		int row = gameObject.getRow();
+		if (!isPositionEmpty(col, row) || !isPositionInLimits(col, row)) 
+		{
+			System.out.println(error(Messages.INVALID_POSITION));
+			ok = false;
+		}
+		return ok;
+	     //  si la posición está libre pide al contenedor que lo añada 
+	          // container.add(gameObject);
+	}
+	
+	
+	public int getCycle()
+	{
+		return cycle;
+	}
+	
+	public int getSuncoins()
+	{
+		return suncoins;
+	}
+	
+	public int addSuncoins(int suncoins)
+	{
+		return suncoins++;
+	}
+	
+	public int getRemainingZombies()
+	{
+		return zombiesManager.getRemainingZombies();
+	}
+	
+	public boolean tryToBuy (int coins)
+	{
+		boolean ok;
+		if(coins >= suncoins) 
+		{
+			suncoins -= coins;
+			ok = true;
+		}
+		else
+		{
+			System.out.println(Messages.NOT_ENOUGH_COINS); // en caso de que el usuario no tenga las monedas necesarias para comprar
+			ok = false;
+		}
+		return ok;
+	}
 	
 }

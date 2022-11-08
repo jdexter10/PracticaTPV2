@@ -13,6 +13,32 @@ public class GameObjectContainer {
 		gameObjects = new ArrayList<>();
 	}
 
-	// TODO add your code here
-
+	public void add()
+	{
+		
+	}
+	
+	public boolean isPositionEmpty(int col, int row)
+	{
+		//buscar en la lista el lugar
+		
+		
+		return gameObjects.isEmpty(); //ver como funciona
+	}
+	
+	public void update()
+	{
+		
+	}
+	
+	public void clear()
+	{
+		
+	}
+	
+	public boolean removeDead()
+	{
+		
+		return false;
+	}
 }

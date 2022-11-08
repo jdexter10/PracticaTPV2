@@ -13,10 +13,31 @@ public interface GameWorld {
 	public static final int NUM_COLS = 8;
 
 	// TODO add your code here
-	boolean playerQuits();
+	public boolean playerQuits();
 	
-	void update();
+	public void update();
 	
-	//Seguir
-
+	public void reset();
+	
+	public void reset();
+	
+	public boolean isPositionEmpty();
+	
+	public void attackPlant();
+	
+	public void attackZombie();
+	
+	public void addSuncoins();
+	
+	public void addGameObject();
+	
+	public boolean tryToBuy(int suncoins);
+	
+	public boolean ZombieArrived();
+	
+	public boolean ZombieDied();
+	
+	public boolean isValidPlantPosition();
+	
+	public boolean isValidZombiePosition();
 }
