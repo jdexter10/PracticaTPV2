@@ -11,12 +11,18 @@ import tp1.p2.view.Messages;
  *
  */
 public abstract class GameObject implements GameItem {
+	
+	protected static final int COOLDOWN=3;
 
 	protected GameWorld game;
 
 	protected int col;
 
 	protected int row;
+	
+	protected int lives;
+	
+	
 
 
 	GameObject() {
@@ -46,11 +52,12 @@ public abstract class GameObject implements GameItem {
 	public String toString() {
 		if (isAlive()) {
 			//Messages.GAME_OBJECT_STATUS;
-			return "";
+			return getSymbol();
 		} else {
 			return "";
 		}
 	}
+	
 
 	abstract protected String getSymbol();
 
@@ -61,4 +68,10 @@ public abstract class GameObject implements GameItem {
 	abstract public void onEnter();
 	
 	abstract public void onExit();
+	
+	abstract public boolean receiveZombieAttack();
+	
+	abstract public boolean receivePlantAttack();
+	
+	abstract public boolean isNpc();
 }

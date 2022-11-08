@@ -8,6 +8,7 @@ public abstract class Plant {
 	}
 	
 	
+	
 	abstract public void getCost();
 	
 	abstract public void copy();

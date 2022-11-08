@@ -1,6 +1,6 @@
 package tp1.p2.logic;
 
-import static tp1.p1.view.Messages.error;
+import static tp1.p2.view.Messages.error;
 
 import java.util.Random;
 
