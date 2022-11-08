@@ -78,7 +78,8 @@ public class ZombiesManager {
 	
 	public boolean allZombiesDied()
 	{
-		return false;
+		if(remainingZombies > 0) return false;
+		return true;
 	}
 	
 	public boolean zombieDied()
@@ -90,7 +91,5 @@ public class ZombiesManager {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-	// TODO add your code here
 
 }

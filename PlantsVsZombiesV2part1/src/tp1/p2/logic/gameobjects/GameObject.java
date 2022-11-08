@@ -47,7 +47,7 @@ public abstract class GameObject implements GameItem {
 		return row;
 	}
 	
-	abstract protected boolean isAlive();
+	abstract public boolean isAlive();
 
 	public String toString() {
 		if (isAlive()) {

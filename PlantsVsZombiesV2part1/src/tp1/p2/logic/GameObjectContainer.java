@@ -13,9 +13,10 @@ public class GameObjectContainer {
 		gameObjects = new ArrayList<>();
 	}
 
-	public void add()
+	public void add(GameObject go) 
 	{
-		
+		gameObjects.add(go);
+		go.onEnter();
 	}
 	
 	public boolean isPositionEmpty(int col, int row)
@@ -28,7 +29,10 @@ public class GameObjectContainer {
 	
 	public void update()
 	{
-		
+		for (GameObject g : gameObjects)
+		{
+			if (g.isAlive()) g.update();
+		}
 	}
 	
 	public void clear()
@@ -36,9 +40,30 @@ public class GameObjectContainer {
 		
 	}
 	
-	public boolean removeDead()
+	public boolean removeDead() 
 	{
-		
-		return false;
+		boolean ok = false;
+		for (GameObject go : gameObjects) 
+		{
+			if (!go.isAlive()) 
+			{
+				go.onExit(); 
+				ok = true;
+			}
+		}
+		return ok;
 	}
+	
+	public GameItem getGameItemInPosition(int col, int row)
+	{
+		return null;
+		
+	}
+	
+	public String positionToString(int col, int row)
+	{
+		return null;
+		
+	}
+
 }
