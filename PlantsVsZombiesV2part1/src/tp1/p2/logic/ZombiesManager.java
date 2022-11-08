@@ -65,17 +65,27 @@ public class ZombiesManager {
 		boolean canAdd = getRemainingZombies() > 0 && shouldAddZombie() && isPositionEmpty(GameWorld.NUM_COLS, row);
 		int zombieType = randomZombieType();
 
-		if (canAdd) {
-			// TODO add your code here
+		if (canAdd) 
+		{
+		
 		}
 		return canAdd;
 	}
 
-	private int getRemainingZombies() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getRemainingZombies() {
+		return remainingZombies;
 	}
-
+	
+	public boolean allZombiesDied()
+	{
+		return false;
+	}
+	
+	public boolean zombieDied()
+	{
+		return true;
+	}
+	
 	private boolean isPositionEmpty(int numCols, int row) {
 		// TODO Auto-generated method stub
 		return false;

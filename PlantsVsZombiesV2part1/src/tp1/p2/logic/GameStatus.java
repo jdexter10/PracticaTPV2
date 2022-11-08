@@ -2,21 +2,19 @@ package tp1.p2.logic;
 
 public interface GameStatus {
 
-	int getCycle();
+	public int getCycle();
 
-	int getSuncoins();
+	public int getSuncoins();
 	
-	int getRemainingZombies();
+	public int getRemainingZombies();
 	
-	int positionToString();
-	
-	boolean isPlayerQuits();
-	
-	boolean isPlayerDied();
-	
-	boolean allZombiesDied();
-
 	public String positionToString(int col, int row);
+	
+	public boolean isPlayerQuits();
+	
+	public boolean isPlayerDied();
+	
+	public boolean allZombiesDied();
 
 	// TODO add your code here
 
