@@ -3,7 +3,7 @@ package tp1.p2.logic;
 import tp1.p2.control.Command;
 import tp1.p2.control.ExecutionResult;
 import tp1.p2.control.Level;
-import tp1.p2.logic.actions.GameAction;
+//import tp1.p2.logic.actions.GameAction;
 import tp1.p2.logic.gameobjects.GameObject;
 
 public interface GameWorld {
@@ -16,8 +16,6 @@ public interface GameWorld {
 	public boolean playerQuits();
 	
 	public void update();
-	
-	public void reset();
 	
 	public void reset();
 	
