@@ -52,7 +52,7 @@ public abstract class GameObject implements GameItem {
 	public String toString() {
 		if (isAlive()) {
 			//Messages.GAME_OBJECT_STATUS;
-			return getSymbol();
+			return Messages.GAME_OBJECT_STATUS;
 		} else {
 			return "";
 		}
@@ -69,9 +69,9 @@ public abstract class GameObject implements GameItem {
 	
 	abstract public void onExit();
 	
-	abstract public boolean receiveZombieAttack();
+	abstract public boolean receiveZombieAttack(int damage);
 	
-	abstract public boolean receivePlantAttack();
+	abstract public boolean receivePlantAttack(int damage);
 	
 	abstract public boolean isNpc();
 }

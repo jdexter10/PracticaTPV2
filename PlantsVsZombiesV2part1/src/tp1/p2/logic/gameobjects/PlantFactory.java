@@ -12,7 +12,7 @@ public class PlantFactory {
 
 	
 	/* @formatter:off */
-	private static final List<Plant> AVAILABLE_PLANTS = Arrays.asList(
+	private static List<Plant> AVAILABLE_PLANTS = Arrays.asList(
 		new Sunflower(),
 		new Peashooter()
 	);
