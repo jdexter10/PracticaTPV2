@@ -5,6 +5,8 @@ import  tp1.p2.view.Messages;
 public class Sunflower extends Plant {
 	
 	private static final int COST=4;
+	private static final int DAMAGE=0;
+	private static final int ENDURANCE=1;
 	
 	Sunflower(){
 		
@@ -17,8 +19,8 @@ public class Sunflower extends Plant {
 	}
 
 	@Override
-	public void getCost() {
-		// TODO Auto-generated method stub
+	public int getCost() {
+		return COST;
 		
 	}
 
@@ -35,7 +37,7 @@ public class Sunflower extends Plant {
 	}
 
 	@Override
-	public String getSymbol() {
+	protected String getSymbol() {
 		// TODO Auto-generated method stub
 		return Messages.SUNFLOWER_SYMBOL;
 	}
@@ -43,7 +45,7 @@ public class Sunflower extends Plant {
 	@Override
 	public String getDescription() {
 		// TODO Auto-generated method stub
-		return Messages.plantDescription(Messages.SUNFLOWER_NAME_SHORTCUT, this.getCost(), col, COOLDOWN);
+		return Messages.plantDescription(Messages.SUNFLOWER_NAME_SHORTCUT, COST, DAMAGE, ENDURANCE);
 	}
 
 	

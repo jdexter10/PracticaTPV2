@@ -18,9 +18,9 @@ public class ZombiesManager {
 
 	private Random rand;
 
-	private int remainingZombies;
+	private int remainingZombies = level.getNumberOfZombies();
 	
-	private int zombiesAlived;
+	private int zombiesAlived = 0;
 
 	public ZombiesManager(GameWorld game, Level level, Random rand) {
 		this.game = game;
@@ -49,8 +49,9 @@ public class ZombiesManager {
 	}
 
 	private int randomZombieType() {
-		return rand.nextInt(((Object) ZombieFactory.getAvailableZombies()).size());
+		return rand.nextInt(ZombieFactory.getAvailableZombies().size());
 	}
+
 
 	public void update() {
 		addZombie();

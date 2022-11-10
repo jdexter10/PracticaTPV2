@@ -117,9 +117,9 @@ public abstract class Game implements GameWorld, GameItem, GameStatus{
 		return suncoins;
 	}
 	
-	public int addSuncoins(int suncoins)
+	public void addSuncoins(int coins)
 	{
-		return suncoins++;
+		suncoins += coins;
 	}
 	
 	public int getRemainingZombies()
@@ -152,7 +152,7 @@ public abstract class Game implements GameWorld, GameItem, GameStatus{
 	public boolean zombieArrived()
 	{
 		
-		return zombiesManager.;
+		return true;
 	}
 	
 	public boolean isValidZombiePosition(Zombie zombie)
@@ -163,5 +163,16 @@ public abstract class Game implements GameWorld, GameItem, GameStatus{
 	public boolean allZombiesDied()
 	{
 		return zombiesManager.allZombiesDied();
+	}
+	
+	public boolean receiveZombieAttack(int damage)
+	{
+		//rellenar
+		return true;
+	}
+	
+	public boolean receivePlantAttack(int damage)
+	{
+		return true;
 	}
 }

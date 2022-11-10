@@ -1,5 +1,6 @@
 package tp1.p2.logic.gameobjects;
 
+import tp1.p2.logic.GameWorld;
 import tp1.p2.view.Messages;
 
 public class Peashooter extends Plant{
@@ -16,50 +17,51 @@ public class Peashooter extends Plant{
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 
 	@Override
-	public void getCost() {
-		// TODO Auto-generated method stub
+	public int getCost() {
+		return COST;
 		
 	}
 
 
 	@Override
 	public void copy() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
 
 	@Override
 	public boolean isAlive() {
-		// TODO Auto-generated method stub
+		if(Peashooter.this.lives > 0) return true;
 		return false;
 	}
 
 
 	@Override
 	protected String getSymbol() {
-		// TODO Auto-generated method stub
-		return null;
+		return Messages.PEASHOOTER_SYMBOL;
 	}
 
 
 	@Override
 	public String getDescription() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
 		
+		for(int i = 0; i < GameWorld.NUM_COLS; i++)
+		{
+			game.attackZombie(i, this.row, DAMAGE);
+		}
 	}
 
 

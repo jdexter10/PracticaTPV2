@@ -10,15 +10,11 @@ public abstract class Plant extends GameObject {
 	
 	abstract public String getName();
 	
-	abstract public void getCost();
+	abstract public int getCost();
 	
 	abstract public void copy();
 	
 	abstract public void update();
-	
-	abstract public String getSymbol();
-	
-	abstract public String getDescription();
 
 
 	@Override

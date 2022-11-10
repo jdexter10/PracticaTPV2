@@ -1,6 +1,7 @@
 package tp1.p2.logic.gameobjects;
 
 import java.util.Arrays;
+
 import java.util.List;
 
 public class ZombieFactory {
@@ -9,14 +10,22 @@ public class ZombieFactory {
 			new Zombie()
 			);
 	
+	
+	
 	public static Object getAvailableZombies() {
-		// TODO Auto-generated method stub
+		//a lo mejor esto return AVAILABLE_ZOMBIES.size()
+		return null;
+	}
+
+	public static Object isValidZombie() {
+		
 		return null;
 	}
 	
-	public static Object isValidZombie() {
-		// TODO Auto-generated method stub
-		return null;
+	
+	private ZombieFactory()
+	{
+		
 	}
 
 }

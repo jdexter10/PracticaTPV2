@@ -21,11 +21,11 @@ public interface GameWorld {
 	
 	public boolean isPositionEmpty();
 	
-	public void attackPlant();
+	public void attackPlant(int col, int row, int damage);
 	
-	public void attackZombie();
+	public void attackZombie(int col, int row, int damage);
 	
-	public void addSuncoins();
+	public void addSuncoins(int coins);
 	
 	public void addGameObject();
 	

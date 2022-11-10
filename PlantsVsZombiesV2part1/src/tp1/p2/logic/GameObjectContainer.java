@@ -37,7 +37,7 @@ public class GameObjectContainer {
 	
 	public void clear()
 	{
-		
+		gameObjects.clear();
 	}
 	
 	public boolean removeDead() 
@@ -65,5 +65,5 @@ public class GameObjectContainer {
 		return null;
 		
 	}
-
+	
 }
