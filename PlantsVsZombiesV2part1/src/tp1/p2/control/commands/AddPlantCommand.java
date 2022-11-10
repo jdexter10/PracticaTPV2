@@ -17,7 +17,7 @@ public class AddPlantCommand extends Command implements Cloneable {
 
 	private String plantName;
 
-	private boolean consumeCoins;
+	private boolean consumeCoins; // boolean para saber si una planta cuesta monedas o no
 
 	public AddPlantCommand() {
 		this(true);

@@ -8,6 +8,7 @@ import tp1.p2.logic.gameobjects.Sunflower;
 import tp1.p2.logic.gameobjects.Zombie;
 import tp1.p2.view.Messages;
 import tp1.p2.control.Command;
+import tp1.p2.control.ExecutionResult;
 import tp1.p2.control.Level;
 import tp1.p2.logic.gameobjects.GameObject;
 
@@ -85,8 +86,10 @@ public abstract class Game implements GameWorld, GameItem, GameStatus{
 		}
 	}
 
-	public boolean execute(Command command) { // revisar esta funcion en el pdf
-		return false;
+	public boolean execute(Command command) 
+	{
+		ExecutionResult commandResult = command.execute(this);
+		return commandResult.draw();
 	}
 	
 	public boolean addGameObject(GameObject gameObject)
@@ -154,7 +157,7 @@ public abstract class Game implements GameWorld, GameItem, GameStatus{
 	
 	public boolean isValidZombiePosition(Zombie zombie)
 	{
-		return isPositionInLimits(/*poner aqui el row y col de zombie*/);
+		return true;//isPositionInLimits(/*poner aqui el row y col de zombie*/);
 	}
 	
 	public boolean allZombiesDied()
