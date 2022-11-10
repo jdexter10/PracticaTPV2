@@ -67,7 +67,7 @@ public class ZombiesManager {
 
 		if (canAdd) 
 		{
-		
+			
 		}
 		return canAdd;
 	}
@@ -84,7 +84,7 @@ public class ZombiesManager {
 	
 	public boolean zombieDied()
 	{
-		return true;
+		return game.ZombieDied();
 	}
 	
 	private boolean isPositionEmpty(int numCols, int row) {

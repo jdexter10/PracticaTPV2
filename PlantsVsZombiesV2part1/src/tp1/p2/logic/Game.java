@@ -146,13 +146,13 @@ public abstract class Game implements GameWorld, GameItem, GameStatus{
 	public boolean zombieDied()
 	{
 		
-		return true;
+		return zombiesManager.zombieDied();
 	}
 	
 	public boolean zombieArrived()
 	{
 		
-		return true;
+		return zombiesManager.;
 	}
 	
 	public boolean isValidZombiePosition(Zombie zombie)
