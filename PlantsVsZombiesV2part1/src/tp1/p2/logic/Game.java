@@ -5,6 +5,7 @@ import static tp1.p2.view.Messages.error;
 import java.util.Random;
 
 import tp1.p2.logic.gameobjects.Sunflower;
+import tp1.p2.logic.gameobjects.Zombie;
 import tp1.p2.view.Messages;
 import tp1.p2.control.Command;
 import tp1.p2.control.Level;
@@ -40,13 +41,14 @@ public abstract class Game implements GameWorld, GameItem, GameStatus{
 
 	public void reset()
 	{
-		suncoins = 50;
+		suncoins = INITIAL_SUNCOINS;
 		cycle = 0;
 		playerQuits = false;
 		playerDied = false;
 	}
 	
 	public boolean isFinished() {
+		if(playerQuits || playerDied) return true;
 		return false;
 	}
 	
@@ -83,8 +85,7 @@ public abstract class Game implements GameWorld, GameItem, GameStatus{
 		}
 	}
 
-	public boolean execute(Command command) { // revisar esta funcion
-		// TODO Auto-generated method stub
+	public boolean execute(Command command) { // revisar esta funcion en el pdf
 		return false;
 	}
 	
@@ -102,7 +103,6 @@ public abstract class Game implements GameWorld, GameItem, GameStatus{
 	     //  si la posición está libre pide al contenedor que lo añada 
 	          // container.add(gameObject);
 	}
-	
 	
 	public int getCycle()
 	{
@@ -140,4 +140,25 @@ public abstract class Game implements GameWorld, GameItem, GameStatus{
 		return ok;
 	}
 	
+	public boolean zombieDied()
+	{
+		
+		return true;
+	}
+	
+	public boolean zombieArrived()
+	{
+		
+		return true;
+	}
+	
+	public boolean isValidZombiePosition(Zombie zombie)
+	{
+		return isPositionInLimits(/*poner aqui el row y col de zombie*/);
+	}
+	
+	public boolean allZombiesDied()
+	{
+		return zombiesManager.allZombiesDied();
+	}
 }
