@@ -49,7 +49,8 @@ public class ZombiesManager {
 	}
 
 	private int randomZombieType() {
-		return rand.nextInt(ZombieFactory.getAvailableZombies().size());
+		//return rand.nextInt(ZombieFactory.getAvailableZombies().size());
+		return 1;
 	}
 
 
