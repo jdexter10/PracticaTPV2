@@ -96,6 +96,6 @@ public class GamePrinter {
 	 */
 	public String endMessage() {
 		// TODO add your code here
-		return ""; // ver que devolver
+		return Messages.GAME_OVER; // ver que devolver
 	}
 }

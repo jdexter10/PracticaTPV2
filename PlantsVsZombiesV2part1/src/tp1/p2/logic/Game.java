@@ -12,7 +12,7 @@ import tp1.p2.control.ExecutionResult;
 import tp1.p2.control.Level;
 import tp1.p2.logic.gameobjects.GameObject;
 
-public abstract class Game implements GameWorld, GameItem, GameStatus{
+public class Game implements GameWorld, GameItem, GameStatus{
 	
 	private static final int INITIAL_SUNCOINS = 50;
 	
@@ -152,7 +152,7 @@ public abstract class Game implements GameWorld, GameItem, GameStatus{
 	public boolean zombieArrived()
 	{
 		
-		return true;
+		return false;
 	}
 	
 	public boolean isValidZombiePosition(Zombie zombie)
@@ -174,5 +174,77 @@ public abstract class Game implements GameWorld, GameItem, GameStatus{
 	public boolean receivePlantAttack(int damage)
 	{
 		return true;
+	}
+
+	@Override
+	public String positionToString(int col, int row) {
+		
+		return null;
+	}
+
+	@Override
+	public boolean isNpc() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean playerQuits() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean isPositionEmpty() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void attackPlant(int col, int row, int damage) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void attackZombie(int col, int row, int damage) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addGameObject() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean ZombieArrived() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean ZombieDied() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isValidPlantPosition() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isValidZombiePosition() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
