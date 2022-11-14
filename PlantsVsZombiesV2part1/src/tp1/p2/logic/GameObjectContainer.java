@@ -62,7 +62,7 @@ public class GameObjectContainer {
 	
 	public String positionToString(int col, int row)
 	{
-		return null;
+		return gameObjects.toString();
 		
 	}
 	

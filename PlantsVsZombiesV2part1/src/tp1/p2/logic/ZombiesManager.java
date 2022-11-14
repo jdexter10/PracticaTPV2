@@ -69,7 +69,7 @@ public class ZombiesManager {
 
 		if (canAdd) 
 		{
-			
+			//añadir nuevo zombie
 		}
 		return canAdd;
 	}
@@ -90,7 +90,7 @@ public class ZombiesManager {
 	}
 	
 	private boolean isPositionEmpty(int numCols, int row) {
-		// TODO Auto-generated method stub
+		if(game.isPositionEmpty(numCols, row)) return true;
 		return false;
 	}
 

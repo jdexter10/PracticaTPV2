@@ -19,7 +19,7 @@ public interface GameWorld {
 	
 	public void reset();
 	
-	public boolean isPositionEmpty();
+	public boolean isPositionEmpty(int col, int row);
 	
 	public void attackPlant(int col, int row, int damage);
 	

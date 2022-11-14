@@ -15,7 +15,4 @@ public interface GameStatus {
 	public boolean isPlayerDied();
 	
 	public boolean allZombiesDied();
-
-	// TODO add your code here
-
 }

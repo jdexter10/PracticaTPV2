@@ -37,7 +37,9 @@ public class Game implements GameWorld, GameItem, GameStatus{
 	
 	public Game(long seed, Level level)
 	{
-		
+		this.seed = seed;
+		this.level = level;
+		this.rand = new Random(seed);
 	}
 
 	public void reset()
@@ -66,16 +68,6 @@ public class Game implements GameWorld, GameItem, GameStatus{
 	
 	public boolean isPlayerQuits() {
 		return playerQuits;
-	}
-	
-	public boolean isPositionEmpty(int col, int row) {
-		// true si esa posicion est� libre en todas las listas
-		boolean ok = false;
-		if(container.isPositionEmpty(col, row)) //ver si hay zombies
-		{
-			ok= true;
-		}
-		return ok;
 	}
 	
 	private static boolean isPositionInLimits(int col, int row) {
@@ -149,12 +141,6 @@ public class Game implements GameWorld, GameItem, GameStatus{
 		return zombiesManager.zombieDied();
 	}
 	
-	public boolean zombieArrived()
-	{
-		
-		return false;
-	}
-	
 	public boolean isValidZombiePosition(Zombie zombie)
 	{
 		return true;//isPositionInLimits(/*poner aqui el row y col de zombie*/);
@@ -196,14 +182,20 @@ public class Game implements GameWorld, GameItem, GameStatus{
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
+		container.update();
+		zombiesManager.update();
 		
 	}
 
 	@Override
-	public boolean isPositionEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean isPositionEmpty(int col, int row) {
+		// true si esa posicion est� libre en todas las listas
+		boolean ok = false;
+		if(container.isPositionEmpty(col, row)) //ver si hay zombies
+		{
+			ok= true;
+		}
+		return ok;
 	}
 
 	@Override
@@ -226,7 +218,7 @@ public class Game implements GameWorld, GameItem, GameStatus{
 
 	@Override
 	public boolean ZombieArrived() {
-		// TODO Auto-generated method stub
+		//ver como revisar si ha llegaod el zombie o no
 		return false;
 	}
 
