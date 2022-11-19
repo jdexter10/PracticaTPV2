@@ -7,10 +7,12 @@ import java.util.Random;
 import tp1.p2.logic.gameobjects.Sunflower;
 import tp1.p2.logic.gameobjects.Zombie;
 import tp1.p2.view.Messages;
+import tp1.p2.logic.ZombiesManager;
 import tp1.p2.control.Command;
 import tp1.p2.control.ExecutionResult;
 import tp1.p2.control.Level;
 import tp1.p2.logic.gameobjects.GameObject;
+import tp1.p2.logic.gameobjects.Peashooter;
 
 public class Game implements GameWorld, GameItem, GameStatus{
 	
@@ -40,8 +42,13 @@ public class Game implements GameWorld, GameItem, GameStatus{
 		this.seed = seed;
 		this.level = level;
 		this.rand = new Random(seed);
+		inicializar();
 	}
-
+	
+	public void inicializar() {
+		zombiesManager = new ZombiesManager(this, level, rand);
+	}
+	
 	public void reset()
 	{
 		suncoins = INITIAL_SUNCOINS;

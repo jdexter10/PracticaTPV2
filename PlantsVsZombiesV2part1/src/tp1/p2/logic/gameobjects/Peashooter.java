@@ -10,7 +10,8 @@ public class Peashooter extends Plant{
 	private static final int DAMAGE = 1;
 	
 	
-	Peashooter(){
+	Peashooter()
+	{
 		
 	}
 
