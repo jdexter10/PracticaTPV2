@@ -37,7 +37,7 @@ public class GameObjectContainer {
 	
 	public void clear()
 	{
-		
+		gameObjects.clear();
 	}
 	
 	public boolean removeDead() 
@@ -62,8 +62,8 @@ public class GameObjectContainer {
 	
 	public String positionToString(int col, int row)
 	{
-		return null;
+		return gameObjects.toString();
 		
 	}
-
+	
 }

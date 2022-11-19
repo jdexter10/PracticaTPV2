@@ -7,11 +7,14 @@ import java.util.Random;
 import tp1.p2.logic.gameobjects.Sunflower;
 import tp1.p2.logic.gameobjects.Zombie;
 import tp1.p2.view.Messages;
+import tp1.p2.logic.ZombiesManager;
 import tp1.p2.control.Command;
+import tp1.p2.control.ExecutionResult;
 import tp1.p2.control.Level;
 import tp1.p2.logic.gameobjects.GameObject;
+import tp1.p2.logic.gameobjects.Peashooter;
 
-public abstract class Game implements GameWorld, GameItem, GameStatus{
+public class Game implements GameWorld, GameItem, GameStatus{
 	
 	private static final int INITIAL_SUNCOINS = 50;
 	
@@ -36,9 +39,16 @@ public abstract class Game implements GameWorld, GameItem, GameStatus{
 	
 	public Game(long seed, Level level)
 	{
-		
+		this.seed = seed;
+		this.level = level;
+		this.rand = new Random(seed);
+		inicializar();
 	}
-
+	
+	public void inicializar() {
+		zombiesManager = new ZombiesManager(this, level, rand);
+	}
+	
 	public void reset()
 	{
 		suncoins = INITIAL_SUNCOINS;
@@ -67,16 +77,6 @@ public abstract class Game implements GameWorld, GameItem, GameStatus{
 		return playerQuits;
 	}
 	
-	public boolean isPositionEmpty(int col, int row) {
-		// true si esa posicion est� libre en todas las listas
-		boolean ok = false;
-		if(container.isPositionEmpty(col, row)) //ver si hay zombies
-		{
-			ok= true;
-		}
-		return ok;
-	}
-	
 	private static boolean isPositionInLimits(int col, int row) {
 		if(col < 0 || col > 8 || row < 0 || row > 4) {
 			return false;
@@ -85,8 +85,10 @@ public abstract class Game implements GameWorld, GameItem, GameStatus{
 		}
 	}
 
-	public boolean execute(Command command) { // revisar esta funcion en el pdf
-		return false;
+	public boolean execute(Command command) 
+	{
+		ExecutionResult commandResult = command.execute(this);
+		return commandResult.draw();
 	}
 	
 	public boolean addGameObject(GameObject gameObject)
@@ -114,9 +116,9 @@ public abstract class Game implements GameWorld, GameItem, GameStatus{
 		return suncoins;
 	}
 	
-	public int addSuncoins(int suncoins)
+	public void addSuncoins(int coins)
 	{
-		return suncoins++;
+		suncoins += coins;
 	}
 	
 	public int getRemainingZombies()
@@ -143,22 +145,105 @@ public abstract class Game implements GameWorld, GameItem, GameStatus{
 	public boolean zombieDied()
 	{
 		
-		return true;
-	}
-	
-	public boolean zombieArrived()
-	{
-		
-		return true;
+		return zombiesManager.zombieDied();
 	}
 	
 	public boolean isValidZombiePosition(Zombie zombie)
 	{
-		return isPositionInLimits(/*poner aqui el row y col de zombie*/);
+		return true;//isPositionInLimits(/*poner aqui el row y col de zombie*/);
 	}
 	
 	public boolean allZombiesDied()
 	{
 		return zombiesManager.allZombiesDied();
+	}
+	
+	public boolean receiveZombieAttack(int damage)
+	{
+		//rellenar
+		return true;
+	}
+	
+	public boolean receivePlantAttack(int damage)
+	{
+		return true;
+	}
+
+	@Override
+	public String positionToString(int col, int row) {
+		
+		return null;
+	}
+
+	@Override
+	public boolean isNpc() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean playerQuits() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void update() {
+		container.update();
+		zombiesManager.update();
+		
+	}
+
+	@Override
+	public boolean isPositionEmpty(int col, int row) {
+		// true si esa posicion est� libre en todas las listas
+		boolean ok = false;
+		if(container.isPositionEmpty(col, row)) //ver si hay zombies
+		{
+			ok= true;
+		}
+		return ok;
+	}
+
+	@Override
+	public void attackPlant(int col, int row, int damage) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void attackZombie(int col, int row, int damage) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addGameObject() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean ZombieArrived() {
+		//ver como revisar si ha llegaod el zombie o no
+		return false;
+	}
+
+	@Override
+	public boolean ZombieDied() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isValidPlantPosition() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isValidZombiePosition() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

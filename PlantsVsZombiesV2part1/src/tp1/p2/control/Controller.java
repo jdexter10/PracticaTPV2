@@ -80,6 +80,7 @@ public class Controller {
 				Command command = Command.parse(words);
 				if (command != null) {
 					// 3-4. Game Action & Update
+					game.update();
 					refreshDisplay = game.execute(command);
 				} else {
 					refreshDisplay = false;

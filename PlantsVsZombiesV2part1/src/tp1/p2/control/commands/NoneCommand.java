@@ -9,7 +9,7 @@ public class NoneCommand extends Command {
 
 	public NoneCommand() {
 		// default command
-		super(true); // ver boolean 
+		//super(true);  ver boolean 
 	}
 
 	@Override
@@ -34,7 +34,9 @@ public class NoneCommand extends Command {
 
 	@Override
 	public ExecutionResult execute(GameWorld game) {
-		// TODO add your code here
+		  // TODO add your code here :  pones  game.update y retun new ExecutionResult(true)  
+	      //NO tiene: create ( parameters) = si alguien lo llama , será ejecutado el del padre. 
+
 		return null; //ver que retornar
 	}
 

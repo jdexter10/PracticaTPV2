@@ -58,10 +58,18 @@ public abstract class GameObject implements GameItem {
 		}
 	}
 	
+	
+	public void recieveDamage(int damage)
+	{
+		this.lives -= damage;
+	}
+	
+	protected void kill() // no se si hay que poner esta funcion mejor tenerla
+	{
+		this.lives = 0;
+	}
 
 	abstract protected String getSymbol();
-
-	abstract public String getDescription();
 
 	abstract public void update();
 	
@@ -74,4 +82,6 @@ public abstract class GameObject implements GameItem {
 	abstract public boolean receivePlantAttack(int damage);
 	
 	abstract public boolean isNpc();
+	
+	abstract public String getDescription();
 }
