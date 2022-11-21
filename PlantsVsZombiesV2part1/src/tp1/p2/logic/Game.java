@@ -47,6 +47,7 @@ public class Game implements GameWorld, GameItem, GameStatus{
 	
 	public void inicializar() {
 		zombiesManager = new ZombiesManager(this, level, rand);
+		container = new GameObjectContainer();
 	}
 	
 	public void reset()

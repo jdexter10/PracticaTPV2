@@ -15,10 +15,9 @@ public class Peashooter extends Plant{
 		
 	}
 
-
 	@Override
 	public String getName() {
-		return null;
+		return Messages.PEASHOOTER_NAME;
 	}
 
 

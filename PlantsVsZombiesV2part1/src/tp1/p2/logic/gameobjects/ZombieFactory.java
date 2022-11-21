@@ -13,8 +13,8 @@ public class ZombieFactory {
 	
 	
 	public static Object getAvailableZombies() {
-		//a lo mejor esto return AVAILABLE_ZOMBIES.size()
-		return null;
+		return AVAILABLE_ZOMBIES.size();
+		//return null;
 	}
 
 	public static Object isValidZombie() {
