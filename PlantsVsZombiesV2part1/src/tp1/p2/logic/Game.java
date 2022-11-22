@@ -208,13 +208,11 @@ public class Game implements GameWorld, GameItem, GameStatus{
 
 	@Override
 	public void attackPlant(int col, int row, int damage) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void attackZombie(int col, int row, int damage) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -226,24 +224,23 @@ public class Game implements GameWorld, GameItem, GameStatus{
 
 	@Override
 	public boolean ZombieArrived() {
-		//ver como revisar si ha llegaod el zombie o no
 		return false;
 	}
 
 	@Override
 	public boolean ZombieDied() {
-		// TODO Auto-generated method stub
+		if(zombiesManager.zombieDied()) return true;
 		return false;
 	}
 
 	@Override
-	public boolean isValidPlantPosition() {
-		// TODO Auto-generated method stub
+	public boolean isValidPlantPosition(int col, int row) {
+		if(isPositionEmpty(col, row) && isPositionInLimits(col, row)) return true;
 		return false;
 	}
 
 	@Override
-	public boolean isValidZombiePosition() {
+	public boolean isValidZombiePosition(int col, int row) {
 		// TODO Auto-generated method stub
 		return false;
 	}

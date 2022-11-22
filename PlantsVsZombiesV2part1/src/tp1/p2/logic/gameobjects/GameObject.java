@@ -23,9 +23,8 @@ public abstract class GameObject implements GameItem {
 	protected int lives;
 	
 	
-
-
-	GameObject() {
+	GameObject()
+	{
 		
 	}
 

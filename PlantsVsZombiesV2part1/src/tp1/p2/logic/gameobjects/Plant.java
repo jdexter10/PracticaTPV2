@@ -19,14 +19,12 @@ public abstract class Plant extends GameObject {
 
 	@Override
 	public boolean receiveZombieAttack(int damage) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 
 	@Override
 	public boolean receivePlantAttack(int damage) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

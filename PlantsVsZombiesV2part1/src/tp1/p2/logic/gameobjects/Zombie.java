@@ -21,7 +21,7 @@ public class Zombie extends GameObject{
 	
 	public String getName()
 	{
-		return "";
+		return Messages.ZOMBIE_NAME;
 	}
 	
 	protected int getSpeed()
