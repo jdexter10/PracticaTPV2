@@ -69,7 +69,8 @@ public class ZombiesManager {
 
 		if (canAdd) 
 		{
-			//añadir nuevo zombie
+			game.addGameObject();
+			zombiesAlived++;
 		}
 		return canAdd;
 	}

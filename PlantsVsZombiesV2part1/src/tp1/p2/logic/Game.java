@@ -102,6 +102,10 @@ public class Game implements GameWorld, GameItem, GameStatus{
 			System.out.println(error(Messages.INVALID_POSITION));
 			ok = false;
 		}
+		else
+		{
+			container.add(gameObject);
+		}
 		return ok;
 	     //  si la posición está libre pide al contenedor que lo añada 
 	          // container.add(gameObject);

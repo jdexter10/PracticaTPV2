@@ -64,7 +64,8 @@ public class Controller {
 	public void run() {
 		boolean refreshDisplay = true;
 
-		while (!game.isFinished() && !game.isPlayerQuits()) {
+		while (!game.isFinished() && !game.isPlayerQuits()) 
+		{
 
 			// 1. Draw
 			if (refreshDisplay) {
@@ -74,15 +75,20 @@ public class Controller {
 			// 2. User action
 			String[] words = prompt();
 
-			if (words.length == 0) {
+			if (words.length == 0) 
+			{
 				System.out.println(error(Messages.UNKNOWN_COMMAND));
-			} else {
+			} 
+			else
+			{
 				Command command = Command.parse(words);
 				if (command != null) {
 					// 3-4. Game Action & Update
 					game.update();
 					refreshDisplay = game.execute(command);
-				} else {
+				} 
+				else 
+				{
 					refreshDisplay = false;
 				}
 			}

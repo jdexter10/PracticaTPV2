@@ -85,6 +85,6 @@ public class Zombie extends GameObject{
 
 	@Override
 	public String getDescription() {
-		return null;
+		return Messages.ZOMBIE_DESCRIPTION;
 	}
 }
