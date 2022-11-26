@@ -20,7 +20,6 @@ public abstract class Plant extends GameObject {
 	@Override
 	public boolean receiveZombieAttack(int damage) {
 		boolean ok = false;
-		if()
 		return ok;
 	}
 
@@ -33,7 +32,7 @@ public abstract class Plant extends GameObject {
 
 	@Override
 	public boolean isAlive() {
-		// TODO Auto-generated method stub
+		if(this.lives > 0) return true;
 		return false;
 	}
 

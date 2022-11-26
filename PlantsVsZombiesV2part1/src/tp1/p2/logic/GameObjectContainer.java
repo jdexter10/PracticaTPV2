@@ -6,7 +6,9 @@ import java.util.List;
 import tp1.p2.logic.gameobjects.GameObject;
 
 public class GameObjectContainer {
-
+	
+	GameObject gameObject;
+	
 	private List<GameObject> gameObjects;
 
 	public GameObjectContainer() {
@@ -62,8 +64,7 @@ public class GameObjectContainer {
 	
 	public String positionToString(int col, int row)
 	{
-		return gameObjects.toString();
-		
+		return gameObject.toString(col, row);
 	}
 	
 }

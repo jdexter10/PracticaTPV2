@@ -176,8 +176,7 @@ public class Game implements GameWorld, GameItem, GameStatus{
 
 	@Override
 	public String positionToString(int col, int row) {
-		
-		return null;
+		return container.positionToString(col, row);
 	}
 
 	@Override

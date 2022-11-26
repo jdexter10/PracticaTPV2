@@ -18,7 +18,7 @@ public class ZombiesManager {
 
 	private Random rand;
 
-	private int remainingZombies = level.getNumberOfZombies();
+	private int remainingZombies;
 	
 	private int zombiesAlived = 0;
 
