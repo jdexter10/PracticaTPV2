@@ -76,12 +76,12 @@ public class ZombiesManager {
 	}
 
 	public int getRemainingZombies() {
-		return remainingZombies;
+		return this.remainingZombies;
 	}
 	
 	public boolean allZombiesDied()
 	{
-		if(remainingZombies > 0) return false;
+		if(this.remainingZombies == this.zombiesAlived && zombiesAlived == 0) return false;
 		return true;
 	}
 	

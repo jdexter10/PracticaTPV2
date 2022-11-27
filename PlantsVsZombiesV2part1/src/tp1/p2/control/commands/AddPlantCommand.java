@@ -53,9 +53,9 @@ public class AddPlantCommand extends Command implements Cloneable {
 		if(game.isValidPlantPosition(col, row)) return new ExecutionResult(Messages.INVALID_POSITION);
 		PlantFactory.spawnPlant(plantName, game, col, row);
 		if(plantName == Messages.PEASHOOTER_NAME)	consumeCoins = game.tryToBuy(50);
-		else if(plantName == Messages.PEASHOOTER_NAME)	consumeCoins = game.tryToBuy(20); //revisar como conseguir los suncoins dependiendo de la planta
+		else if(plantName == Messages.SUNFLOWER_NAME)	consumeCoins = game.tryToBuy(20); //revisar como conseguir los suncoins dependiendo de la planta
 		if(consumeCoins) game.addGameObject();
-		return null; //ver que retornar sino
+		return new ExecutionResult(Messages.COMMAND_NONE_NAME); //ver que retornar sino
 	}
 
 	@Override

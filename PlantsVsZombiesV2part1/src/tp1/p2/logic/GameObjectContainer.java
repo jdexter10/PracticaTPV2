@@ -58,6 +58,14 @@ public class GameObjectContainer {
 	
 	public GameItem getGameItemInPosition(int col, int row)
 	{
+		//System.out.println(gameObjects.size());
+		for(int i=0;i<gameObjects.size();i++) 
+		{					
+			if(gameObjects.get(i).isInPosition(col, row))
+			{			
+					return gameObjects.get(i);			
+			}			
+		}
 		return null;
 		
 	}

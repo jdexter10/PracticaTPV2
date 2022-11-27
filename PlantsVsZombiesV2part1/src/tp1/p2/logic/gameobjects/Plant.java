@@ -1,10 +1,15 @@
 package tp1.p2.logic.gameobjects;
 
+import tp1.p2.logic.GameWorld;
+
 public abstract class Plant extends GameObject {
 	
-	protected Plant()
+	protected Plant(/*int col, int row, int lives, GameWorld game*/)
 	{
-		
+		/*this.game = game;
+		this.col = col;
+		this.row = row;
+		this.lives = lives;*/
 	}
 	
 	

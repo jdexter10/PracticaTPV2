@@ -8,7 +8,8 @@ public class Sunflower extends Plant {
 	private static final int DAMAGE=0;
 	private static final int ENDURANCE=1;
 	
-	Sunflower(){
+	Sunflower()
+	{
 		
 	}
 

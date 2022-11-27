@@ -32,6 +32,8 @@ public class Game implements GameWorld, GameItem, GameStatus{
 	
 	private ZombiesManager zombiesManager;
 	
+	private Zombie zombie;
+	
 	private GameObjectContainer container;
 	
 	private boolean playerDied;
@@ -56,6 +58,7 @@ public class Game implements GameWorld, GameItem, GameStatus{
 		cycle = 0;
 		playerQuits = false;
 		playerDied = false;
+		inicializar();
 	}
 	
 	public boolean isFinished() {
@@ -65,15 +68,10 @@ public class Game implements GameWorld, GameItem, GameStatus{
 	
 	public boolean isPlayerDied()
 	{
-		return playerDied;
+		return this.ZombieArrived();
 	}
 	
-	public void PlayerQuits() //setter de que el jugador cierra
-	{
-		playerQuits = true;
-	}
-	
-	
+	@Override
 	public boolean isPlayerQuits() {
 		return playerQuits;
 	}
@@ -155,7 +153,8 @@ public class Game implements GameWorld, GameItem, GameStatus{
 	
 	public boolean isValidZombiePosition(Zombie zombie)
 	{
-		return true;//isPositionInLimits(/*poner aqui el row y col de zombie*/);
+		if((isPositionInLimits(zombie.getCol(), zombie.getRow()) && zombie.isAlive())) return true;
+		return false;//isPositionInLimits(/*poner aqui el row y col de zombie*/);
 	}
 	
 	public boolean allZombiesDied()
@@ -171,7 +170,7 @@ public class Game implements GameWorld, GameItem, GameStatus{
 	
 	public boolean receivePlantAttack(int damage)
 	{
-		return true;
+		return false;
 	}
 
 	@Override
@@ -181,20 +180,20 @@ public class Game implements GameWorld, GameItem, GameStatus{
 
 	@Override
 	public boolean isNpc() {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
 	@Override
-	public boolean playerQuits() {
-		// TODO Auto-generated method stub
-		return false;
+	public void playerQuits() {
+		playerQuits = true;
 	}
 
 	@Override
 	public void update() {
 		container.update();
 		zombiesManager.update();
+		this.cycle++;
 		
 	}
 
@@ -221,12 +220,16 @@ public class Game implements GameWorld, GameItem, GameStatus{
 
 	@Override
 	public void addGameObject() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
 	@Override
 	public boolean ZombieArrived() {
+		for(int i = 0; i < zombiesManager.getRemainingZombies(); ++i)
+		{
+			if(zombie.getCol() == GameWorld.NUM_COLS) return true;
+		}
 		return false;
 	}
 

@@ -12,8 +12,8 @@ public interface GameWorld {
 
 	public static final int NUM_COLS = 8;
 
-	// TODO add your code here
-	public boolean playerQuits();
+
+	public void playerQuits();
 	
 	public void update();
 	

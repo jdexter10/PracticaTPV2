@@ -35,13 +35,15 @@ public abstract class Command {
 	private static Command defaultCommand;
 
 	public static Command parse(String[] commandWords) {
-		if (commandWords.length == 1 && commandWords[0].isEmpty()) {
-			// TODO add your code here
+		if (commandWords.length == 1 && commandWords[0].isEmpty()) 
+		{
+			return defaultCommand;
 		}
 
 		for (Command command : AVAILABLE_COMMANDS) {
 			if (command.matchCommand(commandWords[0])) {
-				// TODO add your code here
+				command.create(commandWords);
+				return command;
 			}
 		}
 		System.out.println(error(Messages.UNKNOWN_COMMAND));
