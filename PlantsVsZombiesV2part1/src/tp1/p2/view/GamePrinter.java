@@ -2,6 +2,7 @@ package tp1.p2.view;
 
 import static tp1.utils.StringUtils.repeat;
 
+import tp1.p2.logic.Game;
 import tp1.p2.logic.GameStatus;
 import tp1.p2.logic.GameWorld;
 import tp1.utils.StringUtils;
@@ -30,11 +31,12 @@ public class GamePrinter {
 
 	private static final String INDENTED_ROW_BORDER = String.format("%n%s%s%n", EXTENDED_MARGIN, ROW_BORDER);
 
-	private GameStatus game;
+	private GameStatus game1;
+	
+	private Game game;
 
-	public GamePrinter(GameStatus game) {
+	public GamePrinter(Game game) {
 		this.game = game;
-
 	}
 
 	/**

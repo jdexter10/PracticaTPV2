@@ -26,7 +26,7 @@ public class Controller {
 	public Controller(Game game, Scanner scanner) {
 		this.game = game;
 		this.scanner = scanner;
-		this.gamePrinter = new GamePrinter(gameStatus);
+		this.gamePrinter = new GamePrinter(game);
 	}
 
 	/**
