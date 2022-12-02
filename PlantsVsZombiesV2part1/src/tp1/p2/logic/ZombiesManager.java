@@ -18,7 +18,7 @@ public class ZombiesManager {
 
 	private Random rand;
 
-	private int remainingZombies = level.getNumberOfZombies();
+	private int remainingZombies;
 	
 	private int zombiesAlived = 0;
 
@@ -69,18 +69,19 @@ public class ZombiesManager {
 
 		if (canAdd) 
 		{
-			//añadir nuevo zombie
+			game.addGameObject();
+			zombiesAlived++;
 		}
 		return canAdd;
 	}
 
 	public int getRemainingZombies() {
-		return remainingZombies;
+		return this.remainingZombies;
 	}
 	
 	public boolean allZombiesDied()
 	{
-		if(remainingZombies > 0) return false;
+		if(this.remainingZombies == this.zombiesAlived && zombiesAlived == 0) return false;
 		return true;
 	}
 	

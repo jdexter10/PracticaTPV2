@@ -21,7 +21,7 @@ public class Zombie extends GameObject{
 	
 	public String getName()
 	{
-		return "";
+		return Messages.ZOMBIE_NAME;
 	}
 	
 	protected int getSpeed()
@@ -85,6 +85,6 @@ public class Zombie extends GameObject{
 
 	@Override
 	public String getDescription() {
-		return null;
+		return Messages.ZOMBIE_DESCRIPTION;
 	}
 }

@@ -49,14 +49,24 @@ public class AddPlantCommand extends Command implements Cloneable {
 
 	@Override
 	public ExecutionResult execute(GameWorld game) {
-		return null;//ver que retornar
-		// TODO add your code here
+		if(game.isPositionEmpty(col, row)) return new ExecutionResult(Messages.COMMAND_INCORRECT_PARAMETER_NUMBER);
+		if(game.isValidPlantPosition(col, row)) return new ExecutionResult(Messages.INVALID_POSITION);
+		PlantFactory.spawnPlant(plantName, game, col, row);
+		if(plantName == Messages.PEASHOOTER_NAME)	consumeCoins = game.tryToBuy(50);
+		else if(plantName == Messages.SUNFLOWER_NAME)	consumeCoins = game.tryToBuy(20); //revisar como conseguir los suncoins dependiendo de la planta
+		if(consumeCoins) game.addGameObject();
+		return new ExecutionResult(Messages.COMMAND_NONE_NAME); //ver que retornar sino
 	}
 
 	@Override
 	public Command create(String[] parameters) {
-		return null; //ver que retornar
-		// TODO add your code here
+		parameters[0] = plantName;
+		parameters[1] = Integer.toString(col);
+		parameters[2] = Integer.toString(row); //try catch
+		if(parameters.length == 3);
+		if(col == Integer.parseInt(parameters[1]));
+		if(!PlantFactory.isValidPlant(plantName));
+		return null;
 	}
 
 }

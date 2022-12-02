@@ -23,9 +23,8 @@ public abstract class GameObject implements GameItem {
 	protected int lives;
 	
 	
-
-
-	GameObject() {
+	GameObject()
+	{
 		
 	}
 
@@ -49,9 +48,8 @@ public abstract class GameObject implements GameItem {
 	
 	abstract public boolean isAlive();
 
-	public String toString() {
-		if (isAlive()) {
-			//Messages.GAME_OBJECT_STATUS;
+	public String toString(int col, int row) {
+		if (isInPosition(col, row)) {
 			return Messages.GAME_OBJECT_STATUS;
 		} else {
 			return "";

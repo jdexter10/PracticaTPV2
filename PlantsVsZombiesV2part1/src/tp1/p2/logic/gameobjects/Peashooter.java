@@ -15,10 +15,9 @@ public class Peashooter extends Plant{
 		
 	}
 
-
 	@Override
 	public String getName() {
-		return null;
+		return Messages.PEASHOOTER_NAME;
 	}
 
 
@@ -51,8 +50,7 @@ public class Peashooter extends Plant{
 
 	@Override
 	public String getDescription() {
-		
-		return null;
+		return Messages.PLANT_DESCRIPTION;
 	}
 
 

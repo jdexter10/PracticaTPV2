@@ -10,7 +10,10 @@ import tp1.p2.logic.gameobjects.Peashooter;
 import tp1.p2.logic.GameWorld;
 
 public class PlantFactory {
-
+	
+	Peashooter peashooter;
+	Sunflower sunflower;
+	
 	
 	/* @formatter:off */
 	private static List<Plant> AVAILABLE_PLANTS = Arrays.asList(
@@ -31,7 +34,7 @@ public class PlantFactory {
 		//Buscar tipo de planta y llamar al copy de ella (devuelve una planta nueva)
 		if(plantName == Messages.PEASHOOTER_NAME)
 		{
-			
+			//peashooter.copy();
 		}
 		else if(plantName == Messages.SUNFLOWER_NAME)
 		{

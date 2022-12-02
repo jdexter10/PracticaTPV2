@@ -12,8 +12,8 @@ public interface GameWorld {
 
 	public static final int NUM_COLS = 8;
 
-	// TODO add your code here
-	public boolean playerQuits();
+
+	public void playerQuits();
 	
 	public void update();
 	
@@ -35,7 +35,7 @@ public interface GameWorld {
 	
 	public boolean ZombieDied();
 	
-	public boolean isValidPlantPosition();
+	public boolean isValidPlantPosition(int col,int row);
 	
-	public boolean isValidZombiePosition();
+	public boolean isValidZombiePosition(int col, int row);
 }
