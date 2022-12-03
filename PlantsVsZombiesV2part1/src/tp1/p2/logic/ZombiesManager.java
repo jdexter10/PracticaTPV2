@@ -55,7 +55,10 @@ public class ZombiesManager {
 
 
 	public void update() {
-		addZombie();
+		if(addZombie())
+		{
+			this.remainingZombies--;
+		}
 	}
 
 	public boolean addZombie() {
@@ -69,7 +72,7 @@ public class ZombiesManager {
 
 		if (canAdd) 
 		{
-			game.addGameObject();
+			//game.addGameObject();
 			zombiesAlived++;
 		}
 		return canAdd;
@@ -81,8 +84,8 @@ public class ZombiesManager {
 	
 	public boolean allZombiesDied()
 	{
-		if(this.remainingZombies == this.zombiesAlived && zombiesAlived == 0) return false;
-		return true;
+		if(this.remainingZombies == this.zombiesAlived && zombiesAlived == 0) return true;
+		return false;
 	}
 	
 	public boolean zombieDied()

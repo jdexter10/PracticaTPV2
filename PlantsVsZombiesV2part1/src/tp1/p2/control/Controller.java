@@ -69,6 +69,9 @@ public class Controller {
 
 			// 1. Draw
 			if (refreshDisplay) {
+				System.out.println(String.format(Messages.NUMBER_OF_CYCLES) + " " + game.getCycle());
+				System.out.println(String.format(Messages.NUMBER_OF_COINS)+ " "+ game.getSuncoins());
+				System.out.println(String.format(Messages.REMAINING_ZOMBIES)+ " "+ game.getRemainingZombies());
 				printGame();
 			}
 
@@ -89,15 +92,19 @@ public class Controller {
 				} 
 				else 
 				{
-					refreshDisplay = false;
+					//refreshDisplay = false;
+					game.update();
+					refreshDisplay = true;
 				}
 			}
 		}
 
-		if (refreshDisplay) {
+		if (refreshDisplay) 
+		{
 			printGame();
 		}
-
+		if(game.isPlayerDied()) System.out.println(Messages.ZOMBIES_WIN);
+		if(game.allZombiesDied()) {System.out.println(Messages.PLAYER_WINS);}
 		printEndMessage();
 	}
 

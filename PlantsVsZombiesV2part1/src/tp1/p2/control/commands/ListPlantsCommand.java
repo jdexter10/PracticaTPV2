@@ -29,9 +29,9 @@ public class ListPlantsCommand extends Command {
 	@Override
 	public ExecutionResult execute(GameWorld game) {
 		System.out.println(Messages.AVAILABLE_PLANTS);
-		// TODO add your code here
-
-		System.out.println();
+		
+		//getDescription de las plantas
+		System.out.println(Messages.PLANT_DESCRIPTION);
 
 		return new ExecutionResult(false);
 	}

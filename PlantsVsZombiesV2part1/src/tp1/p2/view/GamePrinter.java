@@ -49,7 +49,9 @@ public class GamePrinter {
 		StringBuilder buffer = new StringBuilder();
 
 		/* @formatter:off */
-		// TODO add your code here
+		buffer.append(Messages.NUMBER_OF_CYCLES + game.getCycle()+'\n');
+		buffer.append(Messages.NUMBER_OF_COINS + game.getSuncoins()+'\n');
+		buffer.append(Messages.REMAINING_ZOMBIES+ game.getRemainingZombies()+'\n');
 		/* @formatter:on */
 
 		return buffer.toString();
@@ -97,7 +99,6 @@ public class GamePrinter {
 	 *         finished.
 	 */
 	public String endMessage() {
-		// TODO add your code here
 		return Messages.GAME_OVER; // ver que devolver
 	}
 }

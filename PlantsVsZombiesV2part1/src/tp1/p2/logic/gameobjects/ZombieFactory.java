@@ -14,11 +14,9 @@ public class ZombieFactory {
 	
 	public static Object getAvailableZombies() {
 		return AVAILABLE_ZOMBIES.size();
-		//return null;
 	}
 
 	public static Object isValidZombie() {
-		
 		return null;
 	}
 	

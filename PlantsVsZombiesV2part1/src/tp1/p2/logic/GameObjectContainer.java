@@ -72,7 +72,12 @@ public class GameObjectContainer {
 	
 	public String positionToString(int col, int row)
 	{
-		return gameObject.toString(col, row);
+		GameItem go = getGameItemInPosition(col, row); 
+		if(null==go) 
+		{
+			return "";
+		}
+		return go.toString();
 	}
 	
 }

@@ -22,6 +22,8 @@ public abstract class GameObject implements GameItem {
 	
 	protected int lives;
 	
+	protected int cooldownCycles=0;
+	
 	
 	GameObject()
 	{
@@ -48,12 +50,12 @@ public abstract class GameObject implements GameItem {
 	
 	abstract public boolean isAlive();
 
-	public String toString(int col, int row) {
-		if (isInPosition(col, row)) {
-			return Messages.GAME_OBJECT_STATUS;
-		} else {
-			return "";
+	public String toString() {
+		if (isAlive()) 
+		{	
+			return Messages.status(this.getSymbol(), lives);
 		}
+		return "";
 	}
 	
 	

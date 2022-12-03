@@ -57,7 +57,7 @@ public class Game implements GameWorld, GameItem, GameStatus{
 		suncoins = INITIAL_SUNCOINS;
 		cycle = 0;
 		playerQuits = false;
-		playerDied = false;
+		this.rand = new Random(this.seed);
 		inicializar();
 	}
 	
@@ -73,7 +73,7 @@ public class Game implements GameWorld, GameItem, GameStatus{
 	
 	@Override
 	public boolean isPlayerQuits() {
-		return playerQuits;
+		return this.playerQuits;
 	}
 	
 	private static boolean isPositionInLimits(int col, int row) {
@@ -90,19 +90,20 @@ public class Game implements GameWorld, GameItem, GameStatus{
 		return commandResult.draw();
 	}
 	
-	public boolean addGameObject(GameObject gameObject)
+	@Override
+	public ExecutionResult addGameObject (GameObject gameObject)
 	{
-		boolean ok = false;
+		ExecutionResult ok = new ExecutionResult(false);
 		int col = gameObject.getCol();
 		int row = gameObject.getRow();
-		if (!isPositionEmpty(col, row) || !isPositionInLimits(col, row)) 
+		if (this.isPositionEmpty(col, row)) 
 		{
-			System.out.println(error(Messages.INVALID_POSITION));
-			ok = false;
+			container.add(gameObject);
+			ok = new ExecutionResult(true);
 		}
 		else
 		{
-			container.add(gameObject);
+			System.out.println(error(Messages.INVALID_POSITION));
 		}
 		return ok;
 	     //  si la posición está libre pide al contenedor que lo añada 
@@ -111,17 +112,17 @@ public class Game implements GameWorld, GameItem, GameStatus{
 	
 	public int getCycle()
 	{
-		return cycle;
+		return this.cycle;
 	}
 	
 	public int getSuncoins()
 	{
-		return suncoins;
+		return this.suncoins;
 	}
 	
 	public void addSuncoins(int coins)
 	{
-		suncoins += coins;
+		this.suncoins += coins;
 	}
 	
 	public int getRemainingZombies()
@@ -159,7 +160,7 @@ public class Game implements GameWorld, GameItem, GameStatus{
 	
 	public boolean allZombiesDied()
 	{
-		return zombiesManager.allZombiesDied();
+		return this.zombiesManager.allZombiesDied() && this.zombiesManager.getRemainingZombies() == 0;
 	}
 	
 	public boolean receiveZombieAttack(int damage)
@@ -219,12 +220,6 @@ public class Game implements GameWorld, GameItem, GameStatus{
 	}
 
 	@Override
-	public void addGameObject() {
-		
-		
-	}
-
-	@Override
 	public boolean ZombieArrived() {
 		for(int i = 0; i < zombiesManager.getRemainingZombies(); ++i)
 		{
@@ -247,7 +242,6 @@ public class Game implements GameWorld, GameItem, GameStatus{
 
 	@Override
 	public boolean isValidZombiePosition(int col, int row) {
-		// TODO Auto-generated method stub
-		return false;
+		return col==Game.NUM_COLS && this.isPositionEmpty(col, row);
 	}
 }
