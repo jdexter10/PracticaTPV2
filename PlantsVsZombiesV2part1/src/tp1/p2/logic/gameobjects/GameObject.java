@@ -3,6 +3,7 @@ package tp1.p2.logic.gameobjects;
 import static tp1.p2.view.Messages.status;
 
 import tp1.p2.logic.GameItem;
+import tp1.p2.logic.GameObjectContainer;
 import tp1.p2.logic.GameWorld;
 import tp1.p2.view.Messages;
 
@@ -24,6 +25,7 @@ public abstract class GameObject implements GameItem {
 	
 	protected int cooldownCycles=0;
 	
+	GameObjectContainer container;
 	
 	GameObject()
 	{
@@ -34,6 +36,7 @@ public abstract class GameObject implements GameItem {
 		this.game = game;
 		this.col = col;
 		this.row = row;
+		this.cooldownCycles = 0;
 	}
 
 	public boolean isInPosition(int col, int row) {
@@ -84,4 +87,5 @@ public abstract class GameObject implements GameItem {
 	abstract public boolean isNpc();
 	
 	abstract public String getDescription();
+
 }

@@ -69,9 +69,6 @@ public class Controller {
 
 			// 1. Draw
 			if (refreshDisplay) {
-				System.out.println(String.format(Messages.NUMBER_OF_CYCLES) + " " + game.getCycle());
-				System.out.println(String.format(Messages.NUMBER_OF_COINS)+ " "+ game.getSuncoins());
-				System.out.println(String.format(Messages.REMAINING_ZOMBIES)+ " "+ game.getRemainingZombies());
 				printGame();
 			}
 

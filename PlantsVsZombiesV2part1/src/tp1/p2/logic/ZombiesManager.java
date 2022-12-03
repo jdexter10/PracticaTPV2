@@ -72,7 +72,18 @@ public class ZombiesManager {
 
 		if (canAdd) 
 		{
-			//game.addGameObject();
+			//Se obtiene un número random
+			int rndm = (int) (Math.random()* 100);
+			//Se obtiene un número entre 0 y 3 que será el id del zombie
+			int zombieIdx = rndm % 4;
+			//Se crea un zombie
+			Zombie zombie = ZombieFactory.spawnZombie(zombieIdx,game, Game.NUM_COLS, row);
+			//Se añade al juego
+			game.addGameObject(zombie);
+			//Se resta de los zombies que quedan por salir
+			remainingZombies--;
+			//Se suman a los zombies que han entrado al campo
+			//currentZombies++;
 			zombiesAlived++;
 		}
 		return canAdd;

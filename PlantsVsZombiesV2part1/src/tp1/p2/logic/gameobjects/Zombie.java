@@ -9,7 +9,13 @@ public class Zombie extends GameObject{
 	private static final int DAMAGE = 1;
 	private static final int SPEED = 1;
 	
-	Zombie()
+	Zombie(GameWorld game,int col, int row)
+	{
+		super(game,col,row);
+		this.lives = getEndurance();
+	}
+	
+	public Zombie()
 	{
 		
 	}
@@ -61,13 +67,12 @@ public class Zombie extends GameObject{
 
 	@Override
 	public void onExit() {
-		// TODO Auto-generated method stub
-		
+		game.ZombieDied();
 	}
 
 	@Override
 	public boolean receiveZombieAttack(int damage) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 

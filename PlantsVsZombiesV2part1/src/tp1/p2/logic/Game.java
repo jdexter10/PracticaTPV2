@@ -148,7 +148,6 @@ public class Game implements GameWorld, GameItem, GameStatus{
 	
 	public boolean zombieDied()
 	{
-		
 		return zombiesManager.zombieDied();
 	}
 	
