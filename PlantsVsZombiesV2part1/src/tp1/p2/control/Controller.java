@@ -89,15 +89,19 @@ public class Controller {
 				} 
 				else 
 				{
-					refreshDisplay = false;
+					//refreshDisplay = false;
+					game.update();
+					refreshDisplay = true;
 				}
 			}
 		}
 
-		if (refreshDisplay) {
+		if (refreshDisplay) 
+		{
 			printGame();
 		}
-
+		if(game.isPlayerDied()) System.out.println(Messages.ZOMBIES_WIN);
+		if(game.allZombiesDied()) {System.out.println(Messages.PLAYER_WINS);}
 		printEndMessage();
 	}
 

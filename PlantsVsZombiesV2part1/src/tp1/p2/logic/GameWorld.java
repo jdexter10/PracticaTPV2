@@ -27,7 +27,7 @@ public interface GameWorld {
 	
 	public void addSuncoins(int coins);
 	
-	public void addGameObject();
+	public ExecutionResult addGameObject(GameObject gameObject);
 	
 	public boolean tryToBuy(int suncoins);
 	
